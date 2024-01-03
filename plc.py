@@ -6,7 +6,7 @@ def line_count(filepath):
         with open(filepath, "r") as f:
             return len(f.readlines())
     except:
-        return -1    
+        return 0    
 
 def main():
     if len(sys.argv) < 2:
@@ -35,8 +35,7 @@ def main():
     for file in filenames:
         if "/" not in file:
             file = folder_path + "/" + file
-        c = line_count(file)
-        count += c if c != -1 else 0
+        count += line_count(file)
 
     print(f"Total line found of file types {file_extensions if file_extensions else '[All]'} --> {count} lines")
 
